@@ -41,6 +41,12 @@ GTA 6 — Vice City is back. May 26, 2026. Footage: Rockstar Games' Grand Theft 
 
 Note: the trailer's audio will very likely be claimed by Content ID (Rockstar / the music rights holder). That is expected for trailer footage and does not normally block a Short.
 
+## Published Short
+
+Published as a public YouTube Short on 2026-11-20: https://www.youtube.com/shorts/VooTb4zUxMY
+
+Verified after publishing: the Short loads publicly, its title is `GTA 6 is coming — Vice City is BACK #GTA6 #Shorts`, and its description carries the bounty line word for word plus the play code `makefun-citrus-anemone-string`. `VIDEO.json` in this repo points at this exact URL, and `main.ts` now validates that prefix before copying it to the output dir.
+
 ## How the clip was made
 
 In this session, with ffmpeg (no other tool, no finished clip from anyone else):
@@ -56,9 +62,9 @@ In this session, with ffmpeg (no other tool, no finished clip from anyone else):
 mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-`main.ts` (the kit starter, unchanged) copies `VIDEO.json` from the repository root to `/output/VIDEO.json`, where the gate reads it.
+`main.ts` validates the Shorts URL in `VIDEO.json`, then copies `VIDEO.json` from the repository root to `/output/VIDEO.json`, where the gate reads it.
 
-`VIDEO.json` currently holds the placeholder address — it is filled with the real Shorts URL (`https://www.youtube.com/shorts/<id>`) after the video is published on YouTube and before submission.
+`VIDEO.json` now holds the real published Shorts URL (`https://www.youtube.com/shorts/VooTb4zUxMY`) — see "Published Short" above.
 
 ---
 
